@@ -1,0 +1,10 @@
+node_modules/
+dist/
+**lock**
+.env
+yarn.lock
+SECRET_KEY=
+
+
+
+
