@@ -4,7 +4,7 @@ import path from "path";
 
 const entitiesPath = path.join(__dirname, "entities/**.{js,ts}")
 
-const migrationsPath = path.join(__dirname, "entities/**.{js,ts}")
+const migrationsPath = path.join(__dirname, "migrations/**.{js,ts}")
 
 const AppDataSource = new DataSource(
     process.env.NODE_ENV === "test" ?
