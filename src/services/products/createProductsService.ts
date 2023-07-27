@@ -1,11 +1,11 @@
-import AppDataSource from "../../data-source";
+import { appDataSource } from "../../data-source";
 import { User } from "../../entities/user.entity";
 import { appError } from "../../errors/appErros";
 import { ProductsInterface } from "../../interfaces/products";
 import { Products } from "../../entities/products.entiti";
 
 const createProductService = async (dadosProducts: Products): Promise<Array<User | number | string | {}>> => {
-    const ProductsRepository = AppDataSource.getRepository(Products);
+    const ProductsRepository = appDataSource.getRepository(Products);
     const validationProduct = await ProductsRepository.findOneBy({
       name: dadosProducts.name,
     });

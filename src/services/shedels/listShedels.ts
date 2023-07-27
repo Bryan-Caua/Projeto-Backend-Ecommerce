@@ -1,12 +1,12 @@
-import AppDataSource from "../../data-source";
+import { appDataSource } from "../../data-source";
 import { Categories } from "../../entities/categories.entiti";
 import { Properties } from "../../entities/properties.entiti";
 import { Schedules_user_properties } from "../../entities/shedeuls.entiti";
 import { appError } from "../../errors/appErros";
 
 const listShedelsService = async (Sechid: string): Promise<any> => {
-  const shedelRepository = AppDataSource.getRepository(Schedules_user_properties);
-  const propertyeRepository = AppDataSource.getRepository(Properties);
+  const shedelRepository = appDataSource.getRepository(Schedules_user_properties);
+  const propertyeRepository = appDataSource.getRepository(Properties);
 
 
   const propertyExist = await propertyeRepository.findOneBy({

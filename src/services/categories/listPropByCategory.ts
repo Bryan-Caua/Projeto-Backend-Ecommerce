@@ -1,11 +1,11 @@
-import AppDataSource from "../../data-source";
+import { appDataSource } from "../../data-source";
 import { Categories } from "../../entities/categories.entiti";
 import { Properties } from "../../entities/properties.entiti";
 import { appError } from "../../errors/appErros";
 
 const listPropByCategoryService = async (CateId: string): Promise<any> => {
-  const categorieRepository = AppDataSource.getRepository(Categories);
-  const propertiesRepository = AppDataSource.getRepository(Properties);
+  const categorieRepository = appDataSource.getRepository(Categories);
+  const propertiesRepository = appDataSource.getRepository(Properties);
 
   const categoriExist = await categorieRepository.findOneBy({
     id: CateId,

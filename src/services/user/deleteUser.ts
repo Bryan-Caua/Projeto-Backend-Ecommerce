@@ -1,9 +1,9 @@
-import AppDataSource from "../../data-source";
+import { appDataSource } from "../../data-source";
 import { User } from "../../entities/user.entity";
 import { appError } from "../../errors/appErros";
 
 const deleteUserService = async (userId: string) => {
-  const userRepository = AppDataSource.getRepository(User);
+  const userRepository = appDataSource.getRepository(User);
 
   const findUser = await userRepository.findOneBy({
     id: userId,

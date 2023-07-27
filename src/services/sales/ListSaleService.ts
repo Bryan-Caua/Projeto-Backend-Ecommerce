@@ -1,8 +1,8 @@
-import AppDataSource from "../../data-source";
+import { appDataSource } from "../../data-source";
 import { Sales } from "../../entities/sales.entiti";
 
 const ListSaleService = async (): Promise<any> => {
-  const saleRepository = AppDataSource.getRepository(Sales);
+  const saleRepository = appDataSource.getRepository(Sales);
   const fetchedSale = await saleRepository.find();
 
   return fetchedSale;

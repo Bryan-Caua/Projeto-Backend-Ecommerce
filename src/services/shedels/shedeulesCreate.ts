@@ -1,4 +1,4 @@
-import AppDataSource from "../../data-source";
+import { appDataSource } from "../../data-source";
 import { Properties } from "../../entities/properties.entiti";
 import { Schedules_user_properties } from "../../entities/shedeuls.entiti";
 import { User } from "../../entities/user.entity";
@@ -9,11 +9,11 @@ import { IScheduleRequest } from "../../interfaces/schedules";
   { date, hour, propertyId }: IScheduleRequest,
   userId: string
   ) => {
-  const userRepository = AppDataSource.getRepository(User);
-  const schedelRepository = AppDataSource.getRepository(
+  const userRepository = appDataSource.getRepository(User);
+  const schedelRepository = appDataSource.getRepository(
     Schedules_user_properties
   );
-  const propertiesRepository = AppDataSource.getRepository(Properties);
+  const propertiesRepository = appDataSource.getRepository(Properties);
 
 
   const userExist = await userRepository.findOneBy({

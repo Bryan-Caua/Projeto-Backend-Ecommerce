@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm";
-import AppDataSource from "../../../../data-source";
+import { appDataSource } from "../../../../data-source";
 import request from "supertest"
 import app from "../../../../app";
 import {mockedUser, mockedAdmin, mockedAdminLogin, mockedCategory, mockedProperty, mockedUserLogin, mockedSchedule, mockedScheduleInvalidPropertyId, mockedScheduleInvalidDate, mockedScheduleInvalidHourLess8, mockedScheduleInvalidHourMore18, mockedProperty2} from "../../mocks"
@@ -9,7 +9,7 @@ describe("/schedules", () => {
     let connection: DataSource
 
     beforeAll(async() => {
-        await AppDataSource.initialize().then((res) => {
+        await appDataSource.initialize().then((res) => {
             connection = res
         }).catch((err) => {
             console.error("Error during Data Source initialization", err)

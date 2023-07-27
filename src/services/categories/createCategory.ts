@@ -1,10 +1,10 @@
-import AppDataSource from "../../data-source";
+import { appDataSource } from "../../data-source";
 import { Categories } from "../../entities/categories.entiti";
 import { appError } from "../../errors/appErros";
 import { ICategoryRequest } from "../../interfaces/categories";
 
 const createCategoriService = async (dados: ICategoryRequest) => {
-  const categorieRepository = AppDataSource.getRepository(Categories);
+  const categorieRepository = appDataSource.getRepository(Categories);
 
   const categoriExist = await categorieRepository.findOneBy({
     name: dados.name,

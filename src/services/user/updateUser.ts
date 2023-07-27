@@ -1,4 +1,4 @@
-import AppDataSource from "../../data-source";
+import { appDataSource } from "../../data-source";
 import { User } from "../../entities/user.entity";
 import { appError } from "../../errors/appErros";
 import { IUserUpdate } from "../../interfaces/users";
@@ -14,7 +14,7 @@ const updateUserService = async (
   }
   const { name, email, password } = userData;
 
-  const userRepository = AppDataSource.getRepository(User);
+  const userRepository = appDataSource.getRepository(User);
   const findUser = await userRepository.findOneBy({ id: userID });
   if (!findUser) {
     throw new appError("Id não encontrado", 404);

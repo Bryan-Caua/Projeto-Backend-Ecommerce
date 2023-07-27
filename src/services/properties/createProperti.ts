@@ -1,5 +1,5 @@
 import { IUser } from "../../interfaces/users";
-import AppDataSource from "../../data-source";
+import { appDataSource } from "../../data-source";
 import { User } from "../../entities/user.entity";
 import { appError } from "../../errors/appErros";
 import { Properties } from "../../entities/properties.entiti";
@@ -8,9 +8,9 @@ import { Categories } from "../../entities/categories.entiti";
 import { Address } from "../../entities/adress.entiti";
 
 const createPropertieService = async ({address, categoryId, size, value}: IPropertyRequest): Promise<Array<User | number | string | {}>> => {
-  const propertieRepository = AppDataSource.getRepository(Properties);
-  const categoriRepository = AppDataSource.getRepository(Categories);
-  const addressRepository = AppDataSource.getRepository(Address);
+  const propertieRepository = appDataSource.getRepository(Properties);
+  const categoriRepository = appDataSource.getRepository(Categories);
+  const addressRepository = appDataSource.getRepository(Address);
 
   const categoriaExist = await categoriRepository.findOneBy({
     id: categoryId

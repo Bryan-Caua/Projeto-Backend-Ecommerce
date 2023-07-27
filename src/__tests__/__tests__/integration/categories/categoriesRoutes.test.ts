@@ -1,7 +1,7 @@
 import { DataSource } from "typeorm";
-import AppDataSource from "../../../../data-source";
 import request from "supertest"
 import app from "../../../../app";
+import { appDataSource } from "../../../../data-source";
 import {mockedUser, mockedAdmin, mockedAdminLogin, mockedUserLogin, mockedCategory} from "../../mocks"
 
 
@@ -9,7 +9,7 @@ describe("/categories", () => {
     let connection: DataSource
 
     beforeAll(async() => {
-        await AppDataSource.initialize().then((res) => {
+        await appDataSource.initialize().then((res) => {
             connection = res
         }).catch((err) => {
             console.error("Error during Data Source initialization", err)

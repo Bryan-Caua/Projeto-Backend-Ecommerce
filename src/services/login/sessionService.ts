@@ -1,4 +1,4 @@
-import AppDataSource from "../../data-source";
+import { appDataSource } from "../../data-source";
 import { User } from "../../entities/user.entity";
 import { IUserLogin } from "../../interfaces/users";
 import jwt from "jsonwebtoken";
@@ -10,7 +10,7 @@ const sessionService = async ({
   email,
   password,
 }: IUserLogin): Promise<string> => {
-  const userRepository = AppDataSource.getRepository(User);
+  const userRepository = appDataSource.getRepository(User);
 
   const user = await userRepository.findOneBy({
     email: email,
