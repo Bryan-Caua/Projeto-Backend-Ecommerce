@@ -9,7 +9,7 @@ const DataSourceConfig = () : DataSourceOptions => {
     const entitiesPath = path.join(__dirname, "entities/**.{js,ts}")
     const migrationsPath = path.join(__dirname, "migrations/**.{js,ts}")
 
-    if(process.env.DATABASE_URL){
+    if(!process.env.DATABASE_URL){
         throw new Error("Env var does not exist")
     }
 
