@@ -1,9 +1,9 @@
 import app from "./app";
-import AppDataSource from "./data-source";
 import "dotenv/config";
+import { appDataSource } from "./data-source";
 
 (async () => {
-  await AppDataSource.initialize()
+  await appDataSource.initialize()
     .then(() => {
       app.listen(9000, () => {
         console.log("Servidor executando");
