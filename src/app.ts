@@ -6,9 +6,11 @@ import sessionRoutes from "./routers/session.routes"
 import handleError from "./errors/handleError"
 import salesRoute from "./routers/sales.routes"
 import productsRoute from "./routers/products.routes"
+import cors from "cors"
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.use('/login', sessionRoutes)
 app.use('/users', userRoutes)
