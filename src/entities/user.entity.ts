@@ -1,6 +1,7 @@
 import { hashSync } from "bcryptjs";
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, OneToMany } from "typeorm";
 import { Schedules_user_properties } from "./shedeuls.entiti";
+import { Sales } from "./sales.entiti";
 
 @Entity('users')
  class User {
@@ -36,6 +37,9 @@ import { Schedules_user_properties } from "./shedeuls.entiti";
     
     @OneToMany(() => Schedules_user_properties, (schedules) => schedules.properties)
     properties: Schedules_user_properties[]
+
+    @OneToMany(() => Sales, sales => sales.user)
+    sales: Sales[];
  }
 
 export { User }

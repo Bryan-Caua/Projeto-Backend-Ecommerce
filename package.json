@@ -4,9 +4,7 @@
   "main": "index.ts",
   "author": "bryan",
   "license":"MIT",
-  "engines": {
-    "node": ">=16.0.0 <17.0.0"
-  },
+
   "scripts": {
     "dev": "ts-node-dev --ignore-watch node_modules src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",

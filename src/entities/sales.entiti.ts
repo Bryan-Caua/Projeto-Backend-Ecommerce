@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
-
+import { User } from "./user.entity";
 
 @Entity('Sales')
  class Sales {
@@ -20,6 +20,10 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "ty
 
     @Column()
     quantidade: number
+
+    @ManyToOne(() => User, user => user.sales)
+    user: User;
  }
+ 
 
 export { Sales }
